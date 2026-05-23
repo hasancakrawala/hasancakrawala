@@ -42,9 +42,9 @@ export function Hero() {
               <LiveDot />
               <span>PORTFOLIO · OPEN TO OPPORTUNITIES · TANGERANG SELATAN, ID</span>
             </div>
-            <h1 className="font-display leading-[0.95] tracking-[-0.02em] text-foreground">
-              <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[104px]">Muhammad</span>
-              <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[104px] italic text-accent">
+            <h1 className="font-display leading-[0.88] tracking-[-0.035em] text-foreground">
+              <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[140px] xl:text-[156px]">Muhammad</span>
+              <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[140px] xl:text-[156px] italic text-accent">
                 Hasan Fikri<span className="text-accent">.</span>
               </span>
             </h1>
