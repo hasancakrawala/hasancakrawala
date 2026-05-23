@@ -434,14 +434,10 @@ function PlaceholderMedia({
 }) {
   return (
     <div
-      data-replace={slot}
       className="relative overflow-hidden rounded-md flex items-center justify-center"
       style={{ aspectRatio: ratio, background: `linear-gradient(135deg, ${from}, ${to})` }}
     >
       {children}
-      <span className="absolute bottom-2 right-2 font-mono text-[9px] uppercase tracking-wider text-white/60">
-        REPLACE · {slot}
-      </span>
     </div>
   );
 }
