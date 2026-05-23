@@ -764,15 +764,11 @@ export function Case3() {
         {brands.map((b) => (
           <div key={b.name} className="reveal bg-background rounded-md overflow-hidden border border-hairline">
             <div
-              data-replace={b.slot}
               className="relative flex items-end justify-center"
               style={{ aspectRatio: "4 / 5", background: `linear-gradient(160deg, ${b.from}, ${b.to})` }}
             >
-              <span className="font-display italic text-white text-[180px] leading-none -mb-6 opacity-90">{b.mark}</span>
+              <span className="font-display text-white text-[180px] leading-none -mb-6 opacity-90 font-black tracking-tighter">{b.mark}</span>
               <span className="absolute bottom-3 left-3 font-mono text-[10px] uppercase tracking-wider text-white/80">{b.label}</span>
-              <span className="absolute bottom-2 right-2 font-mono text-[9px] uppercase tracking-wider text-white/60">
-                REPLACE · {b.slot}
-              </span>
             </div>
             <div className="p-6">
               <h4 className="font-display text-2xl">{b.name}</h4>
