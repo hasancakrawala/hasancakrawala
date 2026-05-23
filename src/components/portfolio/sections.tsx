@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Dot, Eyebrow, LiveDot, SectionShell, SocialIcon, TrackRecord, Marquee } from "./primitives";
+import hasanProfile from "@/assets/hasan-profile.png";
 
 const CONTACT = {
   wa: "https://wa.me/62895330305975?text=Halo%20Hasan%2C%20saya%20tertarik%20untuk%20berdiskusi%20lebih%20lanjut%20mengenai%20portofolio%20Anda.",
@@ -21,17 +22,14 @@ export function Hero() {
               href={CONTACT.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="block group relative overflow-hidden rounded-md border border-hairline transition-transform duration-300 hover:-translate-y-0.5"
-              data-replace="profile-photo"
+              className="block group relative overflow-hidden rounded-md border border-hairline bg-cream transition-transform duration-300 hover:-translate-y-0.5"
               style={{ aspectRatio: "4 / 5" }}
             >
-              {/* REPLACE-ME-WITH-PROFILE-PHOTO */}
               <img
-                src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23ddd6c8'/%3E%3Ctext x='50%25' y='50%25' font-family='monospace' font-size='14' fill='%236E6962' text-anchor='middle'%3EProfile photo placeholder%3C/text%3E%3Ctext x='50%25' y='56%25' font-family='monospace' font-size='11' fill='%238a8378' text-anchor='middle'%3Eto be replaced%3C/text%3E%3C/svg%3E"
+                src={hasanProfile}
                 alt="Muhammad Hasan Fikri portrait"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain object-bottom"
               />
-              <div className="absolute inset-0 pointer-events-none" style={{ background: "color-mix(in oklab, var(--accent) 8%, transparent)" }} />
               <div className="absolute inset-0 pointer-events-none border-2 border-accent/0 group-hover:border-accent/30 transition-colors" />
             </a>
             <div className="hidden md:block">
