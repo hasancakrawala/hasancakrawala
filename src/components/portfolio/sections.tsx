@@ -511,7 +511,7 @@ export function SelectedWork() {
             href={c.href}
             className="group block reveal transition-transform duration-300 hover:-translate-y-0.5"
           >
-            {c.media}
+            
             <div className="mt-4">
               <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent">{c.n}</div>
               <h3 className="mt-2 font-display text-2xl">{c.title}</h3>
@@ -607,14 +607,6 @@ export function Case1() {
     <SectionShell id="case-1" bg="cream">
       <CaseHeader num="01" title="Rawdee Glamping" sub="Membangun brand dari nol di industri hospitality." meta="Hospitality / 2023 — 2024" />
 
-      <div className="mt-10">
-        <div
-          className="relative w-full overflow-hidden rounded-md flex items-center justify-center"
-          style={{ aspectRatio: "21 / 9", background: "linear-gradient(135deg, #2C3A2C, #4F6242)" }}
-        >
-          <span className="font-display text-white/85 text-9xl tracking-tight">Rawdee</span>
-        </div>
-      </div>
 
       <div className="mt-10 reveal">
         <BeforeAfter
@@ -763,13 +755,6 @@ export function Case3() {
       <div className="mt-12 grid md:grid-cols-3 gap-6 md:gap-8">
         {brands.map((b) => (
           <div key={b.name} className="reveal bg-background rounded-md overflow-hidden border border-hairline">
-            <div
-              className="relative flex items-end justify-center"
-              style={{ aspectRatio: "4 / 5", background: `linear-gradient(160deg, ${b.from}, ${b.to})` }}
-            >
-              <span className="font-display text-white text-[180px] leading-none -mb-6 opacity-90 font-black tracking-tighter">{b.mark}</span>
-              <span className="absolute bottom-3 left-3 font-mono text-[10px] uppercase tracking-wider text-white/80">{b.label}</span>
-            </div>
             <div className="p-6">
               <h4 className="font-display text-2xl">{b.name}</h4>
               <p className="font-display italic text-accent mt-1">{b.tagline}</p>
