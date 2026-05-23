@@ -45,9 +45,9 @@ export function Hero() {
               <LiveDot />
               <span>PORTFOLIO · OPEN TO OPPORTUNITIES · TANGERANG SELATAN, ID</span>
             </div>
-            <h1 className="font-display leading-[0.9] tracking-[-0.03em] text-foreground break-words">
-              <span className="block text-[15vw] sm:text-7xl md:text-[88px] lg:text-[112px] xl:text-[140px]">Muhammad</span>
-              <span className="block text-[15vw] sm:text-7xl md:text-[88px] lg:text-[112px] xl:text-[140px] italic text-accent">
+            <h1 className="font-display leading-[0.9] tracking-[-0.035em] text-foreground break-words font-black">
+              <span className="block text-[13vw] sm:text-6xl md:text-[72px] lg:text-[88px] xl:text-[112px]">Muhammad</span>
+              <span className="block text-[13vw] sm:text-6xl md:text-[72px] lg:text-[88px] xl:text-[112px] italic text-accent">
                 Hasan Fikri<span className="text-accent">.</span>
               </span>
             </h1>
@@ -434,14 +434,10 @@ function PlaceholderMedia({
 }) {
   return (
     <div
-      data-replace={slot}
       className="relative overflow-hidden rounded-md flex items-center justify-center"
       style={{ aspectRatio: ratio, background: `linear-gradient(135deg, ${from}, ${to})` }}
     >
       {children}
-      <span className="absolute bottom-2 right-2 font-mono text-[9px] uppercase tracking-wider text-white/60">
-        REPLACE · {slot}
-      </span>
     </div>
   );
 }
@@ -613,14 +609,10 @@ export function Case1() {
 
       <div className="mt-10">
         <div
-          data-replace="glamping-hero-photo"
           className="relative w-full overflow-hidden rounded-md flex items-center justify-center"
-          style={{ aspectRatio: "21 / 9", background: "#2C3A2C" }}
+          style={{ aspectRatio: "21 / 9", background: "linear-gradient(135deg, #2C3A2C, #4F6242)" }}
         >
-          <span className="font-display italic text-white/80 text-9xl">G</span>
-          <span className="absolute bottom-3 right-3 font-mono text-[10px] uppercase tracking-wider text-white/60">
-            REPLACE · glamping-hero-photo
-          </span>
+          <span className="font-display text-white/85 text-9xl tracking-tight">Rawdee</span>
         </div>
       </div>
 
@@ -772,15 +764,11 @@ export function Case3() {
         {brands.map((b) => (
           <div key={b.name} className="reveal bg-background rounded-md overflow-hidden border border-hairline">
             <div
-              data-replace={b.slot}
               className="relative flex items-end justify-center"
               style={{ aspectRatio: "4 / 5", background: `linear-gradient(160deg, ${b.from}, ${b.to})` }}
             >
-              <span className="font-display italic text-white text-[180px] leading-none -mb-6 opacity-90">{b.mark}</span>
+              <span className="font-display text-white text-[180px] leading-none -mb-6 opacity-90 font-black tracking-tighter">{b.mark}</span>
               <span className="absolute bottom-3 left-3 font-mono text-[10px] uppercase tracking-wider text-white/80">{b.label}</span>
-              <span className="absolute bottom-2 right-2 font-mono text-[9px] uppercase tracking-wider text-white/60">
-                REPLACE · {b.slot}
-              </span>
             </div>
             <div className="p-6">
               <h4 className="font-display text-2xl">{b.name}</h4>
