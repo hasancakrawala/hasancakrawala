@@ -12,11 +12,11 @@ const CONTACT = {
 /* ==================== HERO ==================== */
 export function Hero() {
   return (
-    <section id="top" className="relative pt-28 md:pt-32 pb-12">
+    <section id="top" className="relative pt-28 md:pt-32 pb-12 overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
-          {/* Profile photo — 4:5 placeholder */}
-          <div className="md:col-span-4 order-1">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-10">
+          {/* Left column: photo + track record stacked */}
+          <div className="md:col-span-4 order-1 flex flex-col gap-8">
             <a
               href={CONTACT.linkedin}
               target="_blank"
@@ -34,17 +34,20 @@ export function Hero() {
               <div className="absolute inset-0 pointer-events-none" style={{ background: "color-mix(in oklab, var(--accent) 8%, transparent)" }} />
               <div className="absolute inset-0 pointer-events-none border-2 border-accent/0 group-hover:border-accent/30 transition-colors" />
             </a>
+            <div className="hidden md:block">
+              <TrackRecord />
+            </div>
           </div>
 
-          {/* Middle — main content */}
-          <div className="md:col-span-5 order-2 flex flex-col justify-end">
+          {/* Right column: content */}
+          <div className="md:col-span-8 order-2 flex flex-col justify-end min-w-0">
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-6">
               <LiveDot />
               <span>PORTFOLIO · OPEN TO OPPORTUNITIES · TANGERANG SELATAN, ID</span>
             </div>
-            <h1 className="font-display leading-[0.88] tracking-[-0.035em] text-foreground">
-              <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[140px] xl:text-[156px]">Muhammad</span>
-              <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-[140px] xl:text-[156px] italic text-accent">
+            <h1 className="font-display leading-[0.9] tracking-[-0.03em] text-foreground break-words">
+              <span className="block text-[15vw] sm:text-7xl md:text-[88px] lg:text-[112px] xl:text-[140px]">Muhammad</span>
+              <span className="block text-[15vw] sm:text-7xl md:text-[88px] lg:text-[112px] xl:text-[140px] italic text-accent">
                 Hasan Fikri<span className="text-accent">.</span>
               </span>
             </h1>
@@ -64,8 +67,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right — Track record */}
-          <aside className="md:col-span-3 order-3 md:pt-2">
+          {/* Track record on mobile only (shown below content) */}
+          <aside className="md:hidden order-3">
             <TrackRecord />
           </aside>
         </div>
