@@ -609,14 +609,10 @@ export function Case1() {
 
       <div className="mt-10">
         <div
-          data-replace="glamping-hero-photo"
           className="relative w-full overflow-hidden rounded-md flex items-center justify-center"
-          style={{ aspectRatio: "21 / 9", background: "#2C3A2C" }}
+          style={{ aspectRatio: "21 / 9", background: "linear-gradient(135deg, #2C3A2C, #4F6242)" }}
         >
-          <span className="font-display italic text-white/80 text-9xl">G</span>
-          <span className="absolute bottom-3 right-3 font-mono text-[10px] uppercase tracking-wider text-white/60">
-            REPLACE · glamping-hero-photo
-          </span>
+          <span className="font-display text-white/85 text-9xl tracking-tight">Rawdee</span>
         </div>
       </div>
 
