@@ -86,18 +86,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Muhammad Hasan Fikri — Brand & Marketing Strategist" },
+      { name: "description", content: "A personal portfolio website for a Brand & Marketing Strategist." },
+      { property: "og:description", content: "A personal portfolio website for a Brand & Marketing Strategist." },
+      { name: "twitter:description", content: "A personal portfolio website for a Brand & Marketing Strategist." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/af2124ec-b0be-48b3-ba14-1b111cbaa79e/id-preview-48b51897--7948b7b3-d000-4d29-8fdf-1f5cbe09f55f.lovable.app-1779560188857.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/af2124ec-b0be-48b3-ba14-1b111cbaa79e/id-preview-48b51897--7948b7b3-d000-4d29-8fdf-1f5cbe09f55f.lovable.app-1779560188857.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "preconnect", href: "https://api.fontshare.com" },
       {
         rel: "stylesheet",
-        href: "https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap",
       },
       { rel: "stylesheet", href: appCss },
     ],
@@ -108,28 +109,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-const GTM_HEAD = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KJ2V5NKL');`;
-
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: GTM_HEAD }} />
         <HeadContent />
       </head>
       <body>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KJ2V5NKL"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
         {children}
         <Scripts />
       </body>
