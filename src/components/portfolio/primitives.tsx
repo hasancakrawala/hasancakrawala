@@ -212,7 +212,7 @@ export function SectionShell({
   const bgClass = bg === "cream" ? "bg-cream" : bg === "dark" ? "bg-dark text-[var(--primary-foreground)]" : "bg-background";
   return (
     <section id={id} className={`${bgClass} ${className}`}>
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-24 md:py-32">{children}</div>
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-36 md:py-48">{children}</div>
     </section>
   );
 }
