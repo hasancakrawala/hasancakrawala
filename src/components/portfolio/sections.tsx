@@ -8,6 +8,7 @@ const CONTACT = {
   linkedin: "https://www.linkedin.com/in/muhammad-hasan-fikri",
   instagram: "https://www.instagram.com/hasan.cakrawala/",
   cv: "https://drive.google.com/drive/folders/1r935KxGMRj77fKvCHW2tVp-kU4Qx8xQ5?usp=sharing",
+  certificates: "https://drive.google.com/drive/folders/1VIYHMCRULrbrImWmFiSq_xCnkPT0elPO?usp=sharing",
 };
 
 /* ==================== HERO ==================== */
