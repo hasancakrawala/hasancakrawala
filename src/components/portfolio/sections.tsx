@@ -206,20 +206,34 @@ export function About() {
           <div className="md:sticky md:top-24 border border-hairline rounded-lg p-6 bg-background">
             <Eyebrow>Profile at a glance</Eyebrow>
             <dl className="mt-5 space-y-3 text-sm">
-              {profile.map(([k, v]) => (
-                <div key={k} className="flex items-baseline justify-between gap-4 border-b border-hairline/60 pb-2 last:border-0">
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">{k}</dt>
-                  <dd
-                    className={
-                      k === "Specialty" || k === "Status"
-                        ? "font-display italic text-accent text-right"
-                        : "text-foreground text-right"
-                    }
-                  >
-                    {v}
-                  </dd>
-                </div>
-              ))}
+              {profile.map(([k, v]) => {
+                const isCert = k === "Certifications";
+                return (
+                  <div key={k} className="flex items-baseline justify-between gap-4 border-b border-hairline/60 pb-2 last:border-0">
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">{k}</dt>
+                    <dd
+                      className={
+                        k === "Specialty" || k === "Status"
+                          ? "font-display italic text-accent text-right"
+                          : "text-foreground text-right"
+                      }
+                    >
+                      {isCert ? (
+                        <a
+                          href={CONTACT.certificates}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-accent transition-colors underline-offset-4 hover:underline"
+                        >
+                          {v}
+                        </a>
+                      ) : (
+                        v
+                      )}
+                    </dd>
+                  </div>
+                );
+              })}
             </dl>
             <a
               href={CONTACT.cv}
@@ -230,6 +244,14 @@ export function About() {
               Download CV →
             </a>
           </div>
+          <a
+            href={CONTACT.certificates}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-accent hover:opacity-80 transition-opacity"
+          >
+            View Certificates <span aria-hidden>→</span>
+          </a>
         </aside>
       </div>
     </SectionShell>
