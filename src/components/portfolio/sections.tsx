@@ -1032,6 +1032,7 @@ export function Contact() {
     { label: "Chat WhatsApp →", href: CONTACT.wa, primary: true, external: true },
     { label: "Kirim email →", href: CONTACT.email, primary: false },
     { label: "View CV →", href: CONTACT.cv, primary: false, external: true },
+    { label: "View Certificates →", href: CONTACT.certificates, primary: false, external: true },
     { label: "LinkedIn →", href: CONTACT.linkedin, primary: false, external: true },
     { label: "Instagram →", href: CONTACT.instagram, primary: false, external: true },
   ];
@@ -1039,6 +1040,7 @@ export function Contact() {
     ["Email", "Hasan.cakrawala@gmail.com", "mailto:Hasan.cakrawala@gmail.com", false],
     ["WhatsApp", "0895 3303 05975", CONTACT.wa, true],
     ["LinkedIn", "muhammad-hasan-fikri", CONTACT.linkedin, true],
+    ["Certificates", "View files →", CONTACT.certificates, true],
     ["Instagram", "@hasan.cakrawala", CONTACT.instagram, true],
     ["Response time", "Within 24 hours", "", false],
   ];
