@@ -8,6 +8,7 @@ const CONTACT = {
   linkedin: "https://www.linkedin.com/in/muhammad-hasan-fikri",
   instagram: "https://www.instagram.com/hasan.cakrawala/",
   cv: "https://drive.google.com/drive/folders/1r935KxGMRj77fKvCHW2tVp-kU4Qx8xQ5?usp=sharing",
+  certificates: "https://drive.google.com/drive/folders/1VIYHMCRULrbrImWmFiSq_xCnkPT0elPO?usp=sharing",
 };
 
 /* ==================== HERO ==================== */
@@ -205,20 +206,34 @@ export function About() {
           <div className="md:sticky md:top-24 border border-hairline rounded-lg p-6 bg-background">
             <Eyebrow>Profile at a glance</Eyebrow>
             <dl className="mt-5 space-y-3 text-sm">
-              {profile.map(([k, v]) => (
-                <div key={k} className="flex items-baseline justify-between gap-4 border-b border-hairline/60 pb-2 last:border-0">
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">{k}</dt>
-                  <dd
-                    className={
-                      k === "Specialty" || k === "Status"
-                        ? "font-display italic text-accent text-right"
-                        : "text-foreground text-right"
-                    }
-                  >
-                    {v}
-                  </dd>
-                </div>
-              ))}
+              {profile.map(([k, v]) => {
+                const isCert = k === "Certifications";
+                return (
+                  <div key={k} className="flex items-baseline justify-between gap-4 border-b border-hairline/60 pb-2 last:border-0">
+                    <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">{k}</dt>
+                    <dd
+                      className={
+                        k === "Specialty" || k === "Status"
+                          ? "font-display italic text-accent text-right"
+                          : "text-foreground text-right"
+                      }
+                    >
+                      {isCert ? (
+                        <a
+                          href={CONTACT.certificates}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-accent transition-colors underline-offset-4 hover:underline"
+                        >
+                          {v}
+                        </a>
+                      ) : (
+                        v
+                      )}
+                    </dd>
+                  </div>
+                );
+              })}
             </dl>
             <a
               href={CONTACT.cv}
@@ -229,6 +244,14 @@ export function About() {
               Download CV →
             </a>
           </div>
+          <a
+            href={CONTACT.certificates}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-accent hover:opacity-80 transition-opacity"
+          >
+            View Certificates <span aria-hidden>→</span>
+          </a>
         </aside>
       </div>
     </SectionShell>
@@ -1009,6 +1032,7 @@ export function Contact() {
     { label: "Chat WhatsApp →", href: CONTACT.wa, primary: true, external: true },
     { label: "Kirim email →", href: CONTACT.email, primary: false },
     { label: "View CV →", href: CONTACT.cv, primary: false, external: true },
+    { label: "View Certificates →", href: CONTACT.certificates, primary: false, external: true },
     { label: "LinkedIn →", href: CONTACT.linkedin, primary: false, external: true },
     { label: "Instagram →", href: CONTACT.instagram, primary: false, external: true },
   ];
@@ -1016,6 +1040,7 @@ export function Contact() {
     ["Email", "Hasan.cakrawala@gmail.com", "mailto:Hasan.cakrawala@gmail.com", false],
     ["WhatsApp", "0895 3303 05975", CONTACT.wa, true],
     ["LinkedIn", "muhammad-hasan-fikri", CONTACT.linkedin, true],
+    ["Certificates", "View files →", CONTACT.certificates, true],
     ["Instagram", "@hasan.cakrawala", CONTACT.instagram, true],
     ["Response time", "Within 24 hours", "", false],
   ];
@@ -1071,7 +1096,7 @@ export function Contact() {
           ))}
         </div>
 
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-6 border-y border-white/10 py-8">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 border-y border-white/10 py-8">
           {grid.map(([k, v, href, ext]) => (
             <div key={k}>
               <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/45">{k}</div>
