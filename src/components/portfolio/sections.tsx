@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Dot, Eyebrow, LiveDot, SectionShell, SocialIcon, TrackRecord, Marquee } from "./primitives";
-import hasanProfile from "@/assets/hasan-profile.png";
+import hasanProfile from "@/assets/hasan-profile.webp";
 
 const CONTACT = {
   wa: "https://wa.me/62895330305975?text=Halo%20Hasan%2C%20saya%20tertarik%20untuk%20berdiskusi%20lebih%20lanjut%20mengenai%20portofolio%20Anda.",
@@ -29,6 +29,10 @@ export function Hero() {
               <img
                 src={hasanProfile}
                 alt="Muhammad Hasan Fikri portrait"
+                width={1000}
+                height={1414}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-contain object-bottom"
               />
               <div className="absolute inset-0 pointer-events-none border-2 border-accent/0 group-hover:border-accent/30 transition-colors" />
