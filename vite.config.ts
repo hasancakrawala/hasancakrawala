@@ -11,5 +11,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
+    // Prerender every route to static HTML so the build output can be hosted
+    // as plain static files (e.g. GitHub Pages) with no server runtime.
+    prerender: { enabled: true, crawlLinks: true },
   },
 });
