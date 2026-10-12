@@ -15,6 +15,7 @@ The website's job is to make HR recruiters confident enough to reach out for an 
 **Visual principle:** "Strategic Minimalism" — generous whitespace, single accent color used precisely, editorial typography, asymmetric grid layouts. Avoid generic AI aesthetic (no gradient meshes, no glassmorphism, no purple gradients).
 
 **Color palette:**
+
 - Background: `#FAF8F4` (warm off-white)
 - Secondary background: `#F0EBE2` (warm cream)
 - Dark background: `#131312` (near black)
@@ -26,6 +27,7 @@ The website's job is to make HR recruiters confident enough to reach out for an 
 - Hairline borders: `#E5DFD3`
 
 **Typography:**
+
 - Display font: **Fraunces** (Google Fonts) — use italic variant heavily for accent words
 - Body font: **Geist** (Google Fonts)
 - Monospace: **Geist Mono** (Google Fonts) — for labels, eyebrows, and metadata
@@ -51,6 +53,7 @@ The website's job is to make HR recruiters confident enough to reach out for an 
 Add a profile photo placeholder in the hero section, positioned to the LEFT of the headline (or above on mobile). Use a placeholder image (gray square 480×600px aspect ratio 4:5 portrait orientation) with the label "Profile photo placeholder — to be replaced".
 
 The photo should:
+
 - Be in 4:5 portrait aspect ratio
 - Have a subtle terracotta-tinted overlay (very low opacity) or a thin terracotta border accent
 - Be positioned with intention — not centered, not just dropped in. Use it as a compositional anchor.
@@ -63,18 +66,23 @@ Make sure the placeholder is clearly labeled with `alt="Muhammad Hasan Fikri por
 ## SECTIONS REQUIRED (in order)
 
 ### 1. Sticky Navigation
+
 Fixed top nav with blur backdrop (`backdrop-filter: blur(20px)`):
+
 - Left: "● Hasan Fikri" (brand mark + name, the dot in terracotta)
 - Right: text links in lowercase mono font (manifesto, about, framework, work, process, faq) + a pill-shaped "Hire me" CTA button (dark background) that links to #contact
 - Add a thin terracotta scroll progress indicator at the very top of the page
 
 ### 2. Hero Section
+
 **Three-column or asymmetric layout:**
+
 - **Left (40%):** Profile photo placeholder (4:5 portrait, see PROFILE PHOTO section above)
 - **Middle (40%):** Main content
 - **Right (20%):** Track Record sidebar
 
 **Middle content:**
+
 - Eyebrow with green pulsing dot: `● PORTFOLIO · OPEN TO OPPORTUNITIES · TANGERANG SELATAN, ID`
 - Massive heading: "Muhammad" (regular) on first line, "Hasan Fikri" (italic terracotta) on second line — font-size around 96-120px desktop
 - Add a small terracotta dot decoration after the last letter
@@ -83,6 +91,7 @@ Fixed top nav with blur backdrop (`backdrop-filter: blur(20px)`):
 - Below tagline: row of 4 small social icons linking to WhatsApp, LinkedIn, Instagram, and CV (Google Drive). Each icon should be a subtle outlined SVG, sized about 20px, with hover state turning terracotta. Add hover labels.
 
 **Right sidebar — Track Record card (bordered):**
+
 - Label: TRACK RECORD
 - Rows (key on left, italic value on right):
   - Revenue growth → 10–15× in 3 mo (× in accent color)
@@ -96,9 +105,11 @@ Fixed top nav with blur backdrop (`backdrop-filter: blur(20px)`):
 **Mobile layout:** Stack vertically — photo on top, then heading, then track record.
 
 ### 3. Table of Contents (Magazine-style Index)
+
 Numbered list 01–10 with section names as clickable anchors. Each row: number (mono, terracotta) | title (Fraunces serif) | description + arrow on hover. Bordered rows with hover state (accent-soft background).
 
 Sections:
+
 - 01 A note before you scroll → Strategic Minimalism
 - 02 About → Marketing yang menemukan saya
 - 03 Framework → Diam · Amati · Berisik
@@ -111,21 +122,24 @@ Sections:
 - 10 Contact → Mari bicara
 
 ### 4. Manifesto Section (Strategic Minimalism)
+
 Background: cream `#F0EBE2`. Two-column layout.
 
 **This section is the most important strategic move — it positions the simplicity of the portfolio as INTENTIONAL.**
 
-- Left: Huge headline "Portofolio ini *sengaja sederhana.*" (last 2 words in italic terracotta)
+- Left: Huge headline "Portofolio ini _sengaja sederhana._" (last 2 words in italic terracotta)
 - Right: Two paragraphs explaining "Karena saya tidak menjual desain. Saya menjual posisi. Brand yang kuat tidak butuh banyak ornamen — yang dibutuhkan adalah pesan dan posisi yang tepat di benak konsumen."
 - Add a quote card (white bg, terracotta left border, large opening quote mark): "Diam di tempat yang tepat. Berisik di tempat yang tepat." with sub-note below.
 - Add a giant italic "M" letter as background watermark (very low opacity, ~6%, positioned bottom-right) for visual depth
 
 ### 5. About Section
+
 Two-column layout: prose on left, sticky "Profile at a glance" sidebar on right.
 
 **Left content:**
+
 - Section eyebrow: "02 About"
-- Heading: "Marketing yang *menemukan saya.*"
+- Heading: "Marketing yang _menemukan saya._"
 - Sub: "Sebuah perjalanan yang dimulai dari rasa ingin tahu — bukan dari rencana karier."
 - Three blocks with small accent labels:
   - LATAR BELAKANG — Sejak 2016 mengamati perilaku konsumen dan bagaimana emosi mendasari setiap keputusan beli. Lulusan Pendidikan Olahraga yang masuk dunia marketing. Memimpin event besar di kampus yang mengundang Kemenpora, Wakil Walikota, KONI.
@@ -133,6 +147,7 @@ Two-column layout: prose on left, sticky "Profile at a glance" sidebar on right.
   - INSIGHT INTI (in italic display font): "Produk yang menyentuh emosi tidak perlu bersaing soal harga — karena ia sudah berdiri di dimensi yang berbeda."
 
 **Right sidebar (Profile at a Glance):**
+
 - Role: Brand & Marketing Strategist
 - Experience: 9+ years
 - Industries: Hospitality · F&B · Lifestyle
@@ -146,14 +161,16 @@ Two-column layout: prose on left, sticky "Profile at a glance" sidebar on right.
 Add a small "Download CV" button below the sidebar that links to the CV Google Drive folder (open in new tab).
 
 ### 6. Framework Section — DIAM · AMATI · BERISIK
+
 **This must look dramatic.** Dark background (`#131312`), with a subtle radial gradient in terracotta in one corner.
 
 - Section eyebrow: "03 Signature framework"
-- Big white heading: "Cara saya *bekerja.*"
+- Big white heading: "Cara saya _bekerja._"
 - Sub: "Sebuah framework yang lahir dari lapangan — diuji di 3 brand, di 3 industri berbeda."
 
 Three columns side by side (no gaps between, just thin vertical dividers):
 Each column:
+
 - Top: circle with number + STAGE ONE/TWO/THREE label
 - Massive italic Fraunces word (DIAM, AMATI, or BERISIK) — ~64px
 - Subtitle line
@@ -161,6 +178,7 @@ Each column:
 - Small SVG icon at bottom (a dashed circle for Diam, an eye shape for Amati, broadcasting arcs for Berisik) — all in terracotta with subtle styling
 
 Content per stage:
+
 - **Diam** — Temukan pijakan & posisi — "Brand yang tergesa-gesa riding the wave tanpa posisi hanya akan terombang-ambing. Diam berarti brand harus punya pijakan yang jelas sebelum bersuara."
 - **Amati** — Baca celah emosional — "Lihat celah yang orang lain lewatkan. Bukan hanya data dan tren — tapi titik-titik lemah di emosi konsumen yang belum disentuh siapapun."
 - **Berisik** — Masuki setiap touchpoint — "Ketika posisi sudah ditemukan, masuki setiap momen, tren, dan event sebagai kesempatan brand untuk dikenali dan dipercaya sebagai solusi."
@@ -168,17 +186,20 @@ Content per stage:
 Bottom footer: "Berlaku untuk brand apapun di industri manapun." | "— Framework, tested in 3 brands"
 
 ### 7. Core Expertise Section
+
 - Eyebrow: "04 Core expertise"
-- Heading: "Tiga pilar, *satu cara kerja.*"
-- Differentiator banner (accent-soft gradient background, terracotta left border): "**Keunggulan utama** — Satu dari sedikit profesional yang menguasai *brand strategy* sekaligus *performance marketing* secara teknikal — bukan hanya strategis." with a small "Rare combo" badge on the right.
+- Heading: "Tiga pilar, _satu cara kerja._"
+- Differentiator banner (accent-soft gradient background, terracotta left border): "**Keunggulan utama** — Satu dari sedikit profesional yang menguasai _brand strategy_ sekaligus _performance marketing_ secara teknikal — bukan hanya strategis." with a small "Rare combo" badge on the right.
 
 Three columns with thin grid lines, each with:
+
 - Number (01, 02, 03)
 - Italic Fraunces heading
 - Short horizontal line
 - Bulleted list (terracotta dots as bullets)
 
 Columns:
+
 - **01 Brand Strategy:** Emotional branding · Brand positioning · Multi-brand architecture · Brand canvas · Customer journey mapping
 - **02 Performance Marketing:** Meta Ads — hands-on · Campaign optimization · Google Analytics & GTM · Dashboard & reporting · Budget management
 - **03 Campaign & Experience:** Campaign strategy · Experience-based campaign · Customer loop strategy · CRM & loyalty building · Integrated marketing
@@ -186,13 +207,15 @@ Columns:
 Bottom strip (cream background): "ALSO STRONG IN — Problem Solving · Team Leadership · Consumer Behavior Research · Event Management · Cross-functional Collaboration"
 
 ### 8. Selected Work Intro
+
 - Eyebrow: "05 Selected work"
-- Heading: "Tiga case study, *hasil yang berbicara.*"
+- Heading: "Tiga case study, _hasil yang berbicara._"
 - Sub: "Bukan portfolio dekoratif — ini hasil kerja nyata yang bisa dilacak angkanya."
 
 3 thumbnail cards (each with hover lift effect). Each card has a media placeholder area on top (gradient background as fallback, but mark it as ready to be replaced with a real brand photo):
 
 **Card 1 — Rawdee Glamping**
+
 - Media placeholder (16:9 ratio, marked "REPLACE-ME-WITH-GLAMPING-PHOTO"). Fallback: gradient from forest green `#2C3A2C` to `#4F6242` with a white tent/triangle SVG icon centered
 - Case 01 label
 - "Rawdee Glamping"
@@ -201,6 +224,7 @@ Bottom strip (cream background): "ALSO STRONG IN — Problem Solving · Team Lea
 - Link to #case-1
 
 **Card 2 — Customer Loop Strategy**
+
 - Media placeholder (16:9, marked "REPLACE-ME-WITH-LOOP-VISUAL"). Fallback: gradient from terracotta `#B8442F` to `#D86E4F` with a white target/loop SVG icon
 - Case 02 label
 - "Customer Loop Strategy"
@@ -209,6 +233,7 @@ Bottom strip (cream background): "ALSO STRONG IN — Problem Solving · Team Lea
 - Link to #case-2
 
 **Card 3 — Multi-Brand Repositioning**
+
 - Media placeholder (16:9, marked "REPLACE-ME-WITH-MULTIBRAND-PHOTO"). Fallback: gradient from brown `#6B4A2E` to `#9A6D44` with a 3-circle network SVG icon
 - Case 03 label
 - "Multi-Brand Repositioning"
@@ -217,11 +242,13 @@ Bottom strip (cream background): "ALSO STRONG IN — Problem Solving · Team Lea
 - Link to #case-3
 
 ### 9. Case Studies (3 detailed)
+
 Each case study should be a long section with all of these components:
 
 **Case Header:** Big italic Fraunces number (01/02/03) | Title + sub | Right-aligned meta tag (Industry / Year)
 
 **Case 1 — Rawdee Glamping** (id: case-1)
+
 - Title: "Rawdee Glamping"
 - Sub: "Membangun brand dari nol di industri hospitality."
 - Meta: Hospitality / 2023 — 2024
@@ -239,6 +266,7 @@ Each case study should be a long section with all of these components:
 - Tags: Emotional Branding · Brand Positioning · Experience Design · Digital Marketing
 
 **Case 2 — Customer Loop Strategy** (id: case-2)
+
 - Title: "Customer Loop Strategy"
 - Sub: "Performance marketing yang efisien dan organik — di 3 brand sekaligus."
 - Meta: Integrated Campaign / 2025 — Now
@@ -257,26 +285,31 @@ Each case study should be a long section with all of these components:
 - Tags: Performance Marketing · Customer Loop · UGC Strategy · Consumer Behavior · Campaign Optimization
 
 **Case 3 — Multi-Brand Repositioning** (id: case-3)
+
 - Title: "Multi-Brand Repositioning"
 - Sub: "Tiga brand, satu ekosistem yang saling menguatkan."
 - Meta: Multi-Brand / 2023 — Now
 
 3 brand showcase cards side by side. Each has:
+
 - Top half: media placeholder (4:5 or 1:1, marked with replacement label). Fallback: gradient color block with HUGE italic letter (G, C, R) as the brand mark, plus a small lowercase label at bottom-left of the visual
 
 **Brand 1 — Rawdee Glamping**
+
 - Media placeholder: "REPLACE-ME-WITH-GLAMPING-BRAND-PHOTO" — fallback gradient: forest green (#2C3A2C → #4F6242), mark: "G" (italic Fraunces), label: Hospitality
 - Name: Rawdee Glamping
 - Tagline (italic terracotta): "Manis Dikenang, Ingin Diulang"
 - Desc: Experience alam + emosi. Kontributor pendapatan tertinggi di perusahaan.
 
 **Brand 2 — Rawdee Coffee House**
+
 - Media placeholder: "REPLACE-ME-WITH-COFFEEHOUSE-BRAND-PHOTO" — fallback gradient: terracotta (#B8442F → #D86E4F), mark: "C", label: F&B / Coffeeshop
 - Name: Rawdee Coffee House
 - Tagline: "Kopi Buatan Sendiri"
 - Desc: Self reward via experience bar. Keluar dari red ocean coffeeshop.
 
 **Brand 3 — Rawdee Roastery**
+
 - Media placeholder: "REPLACE-ME-WITH-ROASTERY-BRAND-PHOTO" — fallback gradient: brown (#6B4A2E → #9A6D44), mark: "R", label: F&B / Roastery
 - Name: Rawdee Roastery
 - Tagline: "Maharasa Kopi Nusantara"
@@ -285,30 +318,36 @@ Each case study should be a long section with all of these components:
 Plus: 2-column Tantangan terbesar / Hasil konkret + Insight callout "Orang tidak ke coffeeshop untuk kafein — mereka ke sana untuk self reward. Dari insight ini lahir positioning yang tidak menjual produk, tapi mengambil posisi emosional yang belum dimiliki siapapun di pasar."
 
 ### 10. Numbers Section
-Dark background. Big heading: "Bukan klaim. *Hasil nyata.*"
+
+Dark background. Big heading: "Bukan klaim. _Hasil nyata._"
 
 3 hero metric cards (dark cards in a row, each with terracotta tag in top-right corner):
+
 - **10–15×** — Revenue growth Rawdee Glamping dalam 3 bulan pertama. (Tag: 3-MONTH GROWTH)
 - **+70%** — Efisiensi budget marketing melalui customer loop strategy. (Tag: BUDGET)
 - **+50%** — Pertumbuhan omzet rata-rata seluruh lini bisnis. (Tag: REVENUE)
 
 Below: 4 supporting metrics (smaller italic numbers with small terracotta line and label):
+
 - 4.9 / 5 — Customer satisfaction score
 - 54% — Occupancy rate
 - 3 — Brands managed simultaneously
 - 9+ thn — Years in marketing & branding
 
-Closing quote with mono labels on left/right: "— Working principle" | *"Produk yang menyentuh emosi tidak perlu bersaing soal harga."* | "M.H.F. / 2026"
+Closing quote with mono labels on left/right: "— Working principle" | _"Produk yang menyentuh emosi tidak perlu bersaing soal harga."_ | "M.H.F. / 2026"
 
 ### 11. How I Work (Process)
+
 Two-column layout: sticky intro left, numbered list right.
 
 Left intro (sticky):
+
 - Eyebrow: "07 How I work"
-- Heading: "Dari pertemuan pertama *sampai hasil.*"
+- Heading: "Dari pertemuan pertama _sampai hasil._"
 - Paragraph explaining the process is consistent across engagements
 
 Right — numbered process list (each item: huge italic number on left, title + description on right, divider lines between):
+
 1. **Listen & Map** — Dengarkan kondisi brand saat ini, pain points pemilik, dan apa yang sudah dicoba. Map situasi: produk, konsumen, kompetitor, dan resource yang tersedia.
 2. **Find the Gap** — Riset celah emosional konsumen yang belum disentuh kompetitor. Ini bukan tentang fitur produk — tapi tentang posisi yang belum diambil siapapun.
 3. **Define Positioning** — Tetapkan positioning yang tajam, tagline yang menjawab, dan brand voice yang konsisten. Tidak hanya kalimat — tapi janji emosional yang bisa dijaga.
@@ -317,21 +356,27 @@ Right — numbered process list (each item: huge italic number on left, title + 
 6. **Measure & Iterate** — Track hasil tiap minggu, identifikasi apa yang bekerja, dan iterate. Hasil signifikan biasanya muncul di bulan ke-3 — bukan instant, tapi konsisten.
 
 ### 12. Tools & AI Integration
+
 Background: cream.
+
 - Eyebrow: "08 Tools & AI integration"
-- Heading: "Strategis sekaligus *hands-on teknikal.*"
+- Heading: "Strategis sekaligus _hands-on teknikal._"
 
 3 columns (white cards with small terracotta circle bullets):
+
 - **01 Ads & Campaign:** Meta Ads Manager · Meta Business Suite
 - **02 Analytics & Reporting:** Google Analytics · Google Tag Manager · Google Sheets
 - **03 Ops & Productivity:** Notion · Google Workspace
 
 Below — AI Integration band (dark background, 2-column inside):
+
 - Left: AI INTEGRATION — ACTIVE label + Big italic line "ChatGPT · Claude · ElevenLabs · Lovable"
 - Right: "AI bukan sekadar tools tambahan — seluruh workflow brand & marketing saya integrasikan dengan AI untuk meningkatkan kecepatan eksekusi, kualitas output, dan efisiensi operasional secara keseluruhan."
 
 ### 13. FAQ Section
+
 6 expandable accordion items (HTML `<details>` style), each showing:
+
 - Small number (01–06 in mono terracotta) | Question (Fraunces, 22px) | "+" icon that rotates to × when open
 
 Q1: **Kenapa portofolio ini begitu sederhana?**
@@ -353,15 +398,18 @@ Q6: **Apa expectation di role berikutnya?**
 A: Perusahaan yang serius dengan brand thinking — bukan perusahaan yang hanya butuh "tambahan tim marketing". Saya cari peran di mana saya bisa berkontribusi langsung ke strategy, bukan hanya eksekusi. Industri terbuka. Yang lebih penting adalah **ada ruang untuk membangun**: brand baru, repositioning, atau scaling brand existing yang sedang plateau.
 
 ### 14. Contact / Footer
+
 Dark background with subtle terracotta radial glow in top-right corner.
 
 Top:
+
 - Eyebrow with green pulsing dot: "10 LET'S TALK"
-- Massive headline (Fraunces, ~96px): "Mari bangun brand *yang benar-benar dirasakan.*"
+- Massive headline (Fraunces, ~96px): "Mari bangun brand _yang benar-benar dirasakan._"
 - Framework line tag: "— DIAM · AMATI · BERISIK"
 - Right side: "Currently available" card with green dot + "Terbuka untuk role Brand Manager, Marketing Manager, atau peran strategis di industri apapun."
 
 **CTA buttons row (5 buttons, primary first):**
+
 - Primary (terracotta pill): "Chat WhatsApp →" → `https://wa.me/62895330305975?text=Halo%20Hasan%2C%20saya%20tertarik%20untuk%20berdiskusi%20lebih%20lanjut.`
 - Secondary (transparent border): "Kirim email →" → `mailto:Hasan.cakrawala@gmail.com`
 - Secondary: "View CV →" → `https://drive.google.com/drive/folders/1r935KxGMRj77fKvCHW2tVp-kU4Qx8xQ5?usp=sharing` (open new tab)
@@ -369,6 +417,7 @@ Top:
 - Secondary: "Instagram →" → `https://www.instagram.com/hasan.cakrawala/` (open new tab)
 
 **Info grid (5 columns, bordered top/bottom):**
+
 - EMAIL: Hasan.cakrawala@gmail.com (clickable mailto)
 - WHATSAPP: 0895 3303 05975 (clickable wa.me)
 - LINKEDIN: muhammad-hasan-fikri (clickable)

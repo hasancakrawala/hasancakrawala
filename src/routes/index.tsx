@@ -2,15 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav, ScrollProgress, useReveal } from "@/components/portfolio/primitives";
 import {
   Hero,
-  Toc,
   Manifesto,
   About,
   Framework,
   Expertise,
   SelectedWork,
-  Case1,
-  Case2,
-  Case3,
   Numbers,
   Process,
   Tools,
@@ -29,15 +25,11 @@ function Index() {
       <ScrollProgress />
       <Nav />
       <Hero />
-      <Toc />
       <Manifesto />
       <About />
       <Framework />
       <Expertise />
       <SelectedWork />
-      <Case1 />
-      <Case2 />
-      <Case3 />
       <Numbers />
       <Process />
       <Tools />

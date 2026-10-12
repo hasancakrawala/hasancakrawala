@@ -82,16 +82,34 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Muhammad Hasan Fikri — Brand & Marketing Strategist" },
       {
         property: "og:description",
-        content: "Emotional branding meets performance marketing. 9+ years. 10–15× revenue growth in 3 months.",
+        content:
+          "Emotional branding meets performance marketing. 9+ years. 10–15× revenue growth in 3 months.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Muhammad Hasan Fikri — Brand & Marketing Strategist" },
-      { name: "description", content: "A personal portfolio website for a Brand & Marketing Strategist." },
-      { property: "og:description", content: "A personal portfolio website for a Brand & Marketing Strategist." },
-      { name: "twitter:description", content: "A personal portfolio website for a Brand & Marketing Strategist." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/af2124ec-b0be-48b3-ba14-1b111cbaa79e/id-preview-48b51897--7948b7b3-d000-4d29-8fdf-1f5cbe09f55f.lovable.app-1779560188857.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/af2124ec-b0be-48b3-ba14-1b111cbaa79e/id-preview-48b51897--7948b7b3-d000-4d29-8fdf-1f5cbe09f55f.lovable.app-1779560188857.png" },
+      {
+        name: "description",
+        content: "A personal portfolio website for a Brand & Marketing Strategist.",
+      },
+      {
+        property: "og:description",
+        content: "A personal portfolio website for a Brand & Marketing Strategist.",
+      },
+      {
+        name: "twitter:description",
+        content: "A personal portfolio website for a Brand & Marketing Strategist.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/af2124ec-b0be-48b3-ba14-1b111cbaa79e/id-preview-48b51897--7948b7b3-d000-4d29-8fdf-1f5cbe09f55f.lovable.app-1779560188857.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/af2124ec-b0be-48b3-ba14-1b111cbaa79e/id-preview-48b51897--7948b7b3-d000-4d29-8fdf-1f5cbe09f55f.lovable.app-1779560188857.png",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

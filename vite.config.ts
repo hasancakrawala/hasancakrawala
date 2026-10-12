@@ -18,7 +18,14 @@ export default defineConfig({
     router: { basepath: GH_PAGES_BASE },
     // Prerender every route to static HTML so the build output can be hosted
     // as plain static files (e.g. GitHub Pages) with no server runtime.
-    prerender: { enabled: true, crawlLinks: true },
+    // `filter` skips crawled hrefs that point at a static asset (PDFs, images, …)
+    // instead of a page — without it the crawler "prerenders" those URLs too,
+    // reading the binary file as text and overwriting it with corrupted output.
+    prerender: {
+      enabled: true,
+      crawlLinks: true,
+      filter: (page) => !/\.[a-z0-9]+$/i.test(page.path),
+    },
   },
   vite: { base: GH_PAGES_BASE },
 });
