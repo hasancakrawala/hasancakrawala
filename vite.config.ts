@@ -10,7 +10,9 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 // GitHub Pages serves this repo at /hasancakrawala/ (a project page, not a
 // user/org root page), so every asset URL and route must be prefixed to match.
-const GH_PAGES_BASE = "/hasancakrawala/";
+// On Vercel (VERCEL=1 is set automatically during its builds) the site is
+// served from the domain root, so the base path is "/" there.
+const GH_PAGES_BASE = process.env.VERCEL ? "/" : "/hasancakrawala/";
 
 export default defineConfig({
   tanstackStart: {
