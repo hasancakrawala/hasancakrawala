@@ -67,39 +67,27 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+// Defaults for every page; role and case routes override title/description.
+const DEFAULT_TITLE =
+  "Muhammad Hasan Fikri — Full Stack Digital Marketing | Tracking & Conversion Specialist";
+const DEFAULT_DESCRIPTION =
+  "Full stack digital marketer: GTM, GA4, Meta Pixel + Conversions API, dan Looker Studio, dari audit tracking sampai iklan yang belajar dari data yang benar.";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Muhammad Hasan Fikri — Brand & Marketing Strategist" },
-      {
-        name: "description",
-        content:
-          "Brand & Marketing Strategist. I help brands grow revenue and build loyal customers through emotional branding and performance marketing.",
-      },
+      { title: DEFAULT_TITLE },
+      { name: "description", content: DEFAULT_DESCRIPTION },
       { name: "author", content: "Muhammad Hasan Fikri" },
-      { property: "og:title", content: "Muhammad Hasan Fikri — Brand & Marketing Strategist" },
-      {
-        property: "og:description",
-        content:
-          "Emotional branding meets performance marketing. 9+ years. 10–15× revenue growth in 3 months.",
-      },
+      { property: "og:title", content: DEFAULT_TITLE },
+      { property: "og:description", content: DEFAULT_DESCRIPTION },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Muhammad Hasan Fikri — Brand & Marketing Strategist" },
-      {
-        name: "description",
-        content: "A personal portfolio website for a Brand & Marketing Strategist.",
-      },
-      {
-        property: "og:description",
-        content: "A personal portfolio website for a Brand & Marketing Strategist.",
-      },
-      {
-        name: "twitter:description",
-        content: "A personal portfolio website for a Brand & Marketing Strategist.",
-      },
+      { name: "twitter:title", content: DEFAULT_TITLE },
+      { name: "twitter:description", content: DEFAULT_DESCRIPTION },
+      // TODO(hasan): ganti gambar OG (og:image + twitter:image di bawah masih gambar lama)
       {
         property: "og:image",
         content:
@@ -114,9 +102,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "preconnect", href: "https://api.fontshare.com" },
+      // Must match the families in styles.css (--font-display/sans/mono).
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap",
+        href: "https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
       },
       { rel: "stylesheet", href: appCss },
     ],

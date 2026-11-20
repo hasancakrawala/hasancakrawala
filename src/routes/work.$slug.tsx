@@ -10,7 +10,16 @@ export const Route = createFileRoute("/work/$slug")({
     return item;
   },
   head: ({ loaderData }) => ({
-    meta: loaderData ? [{ title: `${loaderData.title} — Muhammad Hasan Fikri` }] : [],
+    meta: loaderData
+      ? [
+          { title: `${loaderData.title} — Muhammad Hasan Fikri` },
+          { name: "description", content: loaderData.description },
+          { property: "og:title", content: `${loaderData.title} — Muhammad Hasan Fikri` },
+          { property: "og:description", content: loaderData.description },
+          { name: "twitter:title", content: `${loaderData.title} — Muhammad Hasan Fikri` },
+          { name: "twitter:description", content: loaderData.description },
+        ]
+      : [],
   }),
   component: WorkDetailRoute,
 });

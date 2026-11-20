@@ -1,5 +1,8 @@
 import { Eyebrow, SectionShell } from "../primitives";
 import { BackToWork, CaseHeader, Insight } from "../case-kit";
+import { getCaseNumber } from "@/data/roles";
+
+const SLUG = "multi-brand-repositioning";
 
 export function MultiBrandRepositioningCase() {
   const brands = [
@@ -21,14 +24,21 @@ export function MultiBrandRepositioningCase() {
   ];
   return (
     <>
-      <BackToWork />
-      <SectionShell bg="cream" className="!pt-10 md:!pt-14">
+      <BackToWork slug={SLUG} bg="cream" />
+      <SectionShell bg="cream" padding="pt-8 md:pt-10 pb-24 md:pb-28">
         <CaseHeader
-          num="03"
+          num={getCaseNumber(SLUG)}
           title="Multi-Brand Repositioning"
           sub="Tiga brand, satu ekosistem yang saling menguatkan."
-          meta="Multi-Brand / 2023 — Now"
+          meta="Multi-Brand · In-house (Rawdee Corporation) / 2023 — Now"
         />
+
+        <p className="mt-10 max-w-3xl text-foreground/85 leading-relaxed reveal">
+          Brand & Marketing Manager sejak Jan 2025, memimpin tim 5 orang untuk 3 unit bisnis
+          (Glamping, Coffee House, Roastery). Mengelola ~IDR 100 jt ad spend per bulan di Meta,
+          Google, TikTok, OTA, dan marketplace, dengan tracking lintas divisi (Meta Pixel, GTM, GA4)
+          dan dashboard performa sebagai dasar keputusan budget.
+        </p>
 
         <div className="mt-12 grid md:grid-cols-3 gap-6 md:gap-8">
           {brands.map((b) => (

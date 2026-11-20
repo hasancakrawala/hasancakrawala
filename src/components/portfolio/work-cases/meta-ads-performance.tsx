@@ -9,26 +9,27 @@ import {
   Finding,
   DataTable,
   ProcessSteps,
-  ServiceOffers,
 } from "../case-kit";
-import metaAdsPdf from "@/assets/case-studies/meta-ads-performance.pdf?url";
+import { getCaseNumber } from "@/data/roles";
+
+const SLUG = "meta-ads-performance";
 
 export function MetaAdsPerformanceCase() {
   return (
     <>
-      <BackToWork pdf={metaAdsPdf} />
-      <SectionShell className="!pt-10 md:!pt-14">
+      <BackToWork slug={SLUG} />
+      <SectionShell padding="pt-8 md:pt-10 pb-24 md:pb-28">
         <CaseHeader
-          num="04"
+          num={getCaseNumber(SLUG)}
           title="Meta Ads Performance Rebuild"
           sub="Budget sama. Cost per lead turun lebih dari separuh."
-          meta="Rawdee Glamping · Hospitality / 2026"
+          meta="Rawdee Glamping · In-house (Rawdee Corporation) · 2026"
         />
 
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
           <MetricCard value="−56%" label="Cost per lead vs 30 hari sebelumnya" />
           <MetricCard value="3.7×" label="Link click yang jadi chat WhatsApp" />
-          <MetricCard value="40%" label="Di bawah target CPL klien" />
+          <MetricCard value="40%" label="Di bawah target CPL internal" />
           <MetricCard value="34→3" label="Campaign: dua tema + satu test lab" />
         </div>
 
@@ -297,6 +298,7 @@ export function MetaAdsPerformanceCase() {
         </div>
 
         {/* 05 First results */}
+        {/* TODO(hasan): ganti hasil 72 jam (6–8 Okt) dengan data penuh 5–30 Okt 2026 */}
         <div className="mt-16">
           <Eyebrow>05 Hasil pertama</Eyebrow>
           <h3 className="mt-3 font-display text-2xl md:text-3xl">
@@ -369,31 +371,11 @@ export function MetaAdsPerformanceCase() {
                 ["Struktur & naming", "Satu variabel per level, bisa dibaca siapa pun di tim."],
                 [
                   "Strategi kreatif",
-                  "Pilih, test, dan baca kreatif klien; brief apa yang perlu dibuat selanjutnya.",
+                  "Pilih, test, dan baca kreatif tim in-house; brief apa yang perlu dibuat selanjutnya.",
                 ],
                 [
                   "Launch & reporting",
                   "Switchover di hari yang sama, UTM, no-edit window, weekly read.",
-                ],
-              ]}
-            />
-          </div>
-        </div>
-
-        <div className="mt-16">
-          <Eyebrow>Yang bisa saya kerjakan untuk bisnis Anda</Eyebrow>
-          <div className="mt-6">
-            <ServiceOffers
-              offers={[
-                ["Ad account audit", "Temukan di mana budget bocor sebelum Anda scale."],
-                ["Pixel + CAPI setup", "Beri algoritma sinyal yang bisa dipercaya."],
-                [
-                  "Account rebuild",
-                  "Struktur, naming, dan budget yang hasilnya bisa dibandingkan.",
-                ],
-                [
-                  "Creative strategy",
-                  "Anda bawa kreatifnya; saya pastikan ia menghasilkan dan brief pemenang berikutnya.",
                 ],
               ]}
             />

@@ -4,6 +4,8 @@ import { TrackingAnalyticsCase } from "./tracking-analytics";
 import { RawdeeGlampingCase } from "./rawdee-glamping";
 import { CustomerLoopStrategyCase } from "./customer-loop-strategy";
 import { MultiBrandRepositioningCase } from "./multi-brand-repositioning";
+import { WorkFromKebunCase } from "./work-from-kebun";
+import { CroLandingPageCase } from "./cro-landing-page";
 
 export const WORK_CASE_COMPONENTS: Record<string, ComponentType> = {
   "meta-ads-performance": MetaAdsPerformanceCase,
@@ -11,4 +13,6 @@ export const WORK_CASE_COMPONENTS: Record<string, ComponentType> = {
   "rawdee-glamping": RawdeeGlampingCase,
   "customer-loop-strategy": CustomerLoopStrategyCase,
   "multi-brand-repositioning": MultiBrandRepositioningCase,
+  "work-from-kebun": WorkFromKebunCase,
+  "cro-landing-page": CroLandingPageCase,
 };

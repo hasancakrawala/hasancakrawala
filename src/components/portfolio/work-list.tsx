@@ -4,7 +4,7 @@ import { WORK_ITEMS } from "@/data/work";
 
 export function WorkListPage() {
   return (
-    <SectionShell className="!pt-28 md:!pt-36">
+    <SectionShell padding="pt-28 md:pt-36 pb-24 md:pb-32">
       <div className="reveal">
         <Eyebrow>Selected work</Eyebrow>
         <h1 className="mt-4 font-display text-4xl md:text-6xl leading-[1.04] tracking-tight">
@@ -44,18 +44,6 @@ export function WorkListPage() {
                 →
               </div>
             </Link>
-            {w.pdf && (
-              <div className="px-3 -mx-3 pb-6 flex justify-end">
-                <a
-                  href={w.pdf}
-                  download
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground hover:text-accent transition-colors"
-                >
-                  Download PDF ↓
-                </a>
-              </div>
-            )}
           </li>
         ))}
       </ul>

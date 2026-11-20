@@ -1,20 +1,39 @@
-import type { ReactNode } from "react";
+import { useContext, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Eyebrow, SectionShell } from "./primitives";
+import { getRoleForCase } from "@/data/roles";
+import { CaseEmbedContext } from "./case-embed";
 
-/* -------- Back-to-work link, shown above the case's own CaseHeader.
-   The optional PDF download sits on this same top row so it's visible the
-   instant the page opens — no scrolling needed on any screen size. -------- */
-export function BackToWork({ pdf }: { pdf?: string }) {
+/* -------- Back link, shown above the case's own CaseHeader. It leads to the
+   role page this case belongs to (src/data/roles.ts).
+   Embedded on the role page there is nowhere to go back to, so it only keeps
+   the case's top spacing, on the same background as the case section below. -------- */
+export function BackToWork({
+  slug,
+  bg = "background",
+}: {
+  slug: string;
+  bg?: "background" | "cream";
+}) {
+  const embedded = useContext(CaseEmbedContext);
+  const role = getRoleForCase(slug);
+  if (embedded) {
+    return (
+      <div className={bg === "cream" ? "bg-cream" : "bg-background"}>
+        <div className="pt-16 md:pt-20" />
+      </div>
+    );
+  }
   return (
-    <div className="pt-28 md:pt-36 px-6 md:px-10 mx-auto max-w-[1400px] flex items-center justify-between gap-4">
-      <Link
-        to="/work"
-        className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground hover:text-accent transition-colors"
-      >
-        ← All work
-      </Link>
-      {pdf && <DownloadPdf href={pdf} />}
+    <div className={bg === "cream" ? "bg-cream" : "bg-background"}>
+      <div className="pt-28 md:pt-36 px-6 md:px-10 mx-auto max-w-[1400px] flex items-center justify-between gap-4">
+        <Link
+          to={role?.path ?? "/work"}
+          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground hover:text-accent transition-colors"
+        >
+          ← {role?.name ?? "All work"}
+        </Link>
+      </div>
     </div>
   );
 }
@@ -31,16 +50,18 @@ export function CaseHeader({
   meta: string;
 }) {
   return (
-    <div className="grid md:grid-cols-12 gap-6 items-end border-b border-hairline pb-8">
+    <div className="grid md:grid-cols-12 gap-x-6 gap-y-4 items-end border-b border-hairline pb-8">
       <div className="md:col-span-2 font-display italic text-7xl md:text-8xl text-accent leading-none">
         {num}
       </div>
-      <div className="md:col-span-7">
-        <h3 className="font-display text-3xl md:text-5xl leading-[1.05] tracking-tight">{title}</h3>
-        <p className="mt-3 text-muted-foreground text-lg">{sub}</p>
-      </div>
-      <div className="md:col-span-3 md:text-right font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-        {meta}
+      <div className="md:col-span-10">
+        <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground leading-relaxed">
+          {meta}
+        </div>
+        <h3 className="mt-3 font-display text-3xl md:text-5xl leading-[1.05] tracking-tight">
+          {title}
+        </h3>
+        <p className="mt-3 max-w-3xl text-muted-foreground text-lg">{sub}</p>
       </div>
     </div>
   );
@@ -59,7 +80,7 @@ export function BeforeAfter({
 }) {
   return (
     <div className="grid md:grid-cols-2 gap-4">
-      <div className="bg-cream rounded-md p-6">
+      <div className="bg-cream border border-hairline rounded-md p-6">
         <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
           Before
         </div>
@@ -101,18 +122,6 @@ export function Insight({ children }: { children: ReactNode }) {
       </div>
       <p className="font-display text-lg md:text-xl leading-snug italic">{children}</p>
     </div>
-  );
-}
-
-export function DownloadPdf({ href }: { href: string }) {
-  return (
-    <a
-      href={href}
-      download
-      className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground border border-hairline rounded-full px-3 py-1.5 hover:text-accent hover:border-accent transition-colors"
-    >
-      Download PDF ↓
-    </a>
   );
 }
 

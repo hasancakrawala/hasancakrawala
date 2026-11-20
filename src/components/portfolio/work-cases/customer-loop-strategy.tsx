@@ -1,5 +1,8 @@
 import { Eyebrow, SectionShell } from "../primitives";
 import { BackToWork, CaseHeader, BeforeAfter, MetricCard, Insight, Tags } from "../case-kit";
+import { getCaseNumber } from "@/data/roles";
+
+const SLUG = "customer-loop-strategy";
 
 export function CustomerLoopStrategyCase() {
   const steps = [
@@ -10,27 +13,37 @@ export function CustomerLoopStrategyCase() {
   ];
   return (
     <>
-      <BackToWork />
-      <SectionShell className="!pt-10 md:!pt-14">
+      <BackToWork slug={SLUG} />
+      <SectionShell padding="pt-8 md:pt-10 pb-24 md:pb-28">
         <CaseHeader
-          num="02"
+          num={getCaseNumber(SLUG)}
           title="Customer Loop Strategy"
           sub="Performance marketing yang efisien dan organik — di 3 brand sekaligus."
-          meta="Integrated Campaign / 2025 — Now"
+          meta="Integrated Campaign · In-house (Rawdee Corporation) / 2025 — Now"
         />
 
         <div className="mt-10 grid grid-cols-3 gap-4 reveal">
-          <MetricCard value="+50%" label="Revenue" />
-          <MetricCard value="+70%" label="Budget efficiency" />
-          <MetricCard value="3 bln" label="Time to compound" />
+          <MetricCard
+            value="+50%"
+            label="Revenue 3 unit bisnis YoY (4 kuartal vs 4 kuartal sebelumnya)"
+          />
+          <MetricCard value="+70%" label="ROMI di semua unit" />
+          <MetricCard value="1M+" label="Reach gabungan program talent, komunitas & partnership" />
         </div>
+
+        <p className="mt-10 max-w-3xl text-foreground/85 leading-relaxed reveal">
+          Revenue 3 unit bisnis tumbuh +50% YoY dan ROMI naik +70% lewat brand repositioning,
+          go-to-market strategy, dan paid ads scaling. Customer loop adalah salah satu strategi di
+          dalamnya: membuat konsumen ikut menyebarkan brand, sehingga setiap rupiah iklan mendapat
+          dorongan organik.
+        </p>
 
         <div className="mt-12 reveal">
           <BeforeAfter
             before="Budget marketing besar tapi hasil flat. Konten harus terus diproduksi, biaya membengkak."
             beforeMeta="Ketergantungan pada paid traffic"
             after="Konsumen menyebarkan brand sendiri lewat experience yang dirancang. Loop berulang otomatis."
-            afterMeta="+50% revenue · +70% efisiensi"
+            afterMeta="Salah satu strategi di balik revenue +50% YoY · ROMI +70%"
           />
         </div>
 
@@ -79,6 +92,21 @@ export function CustomerLoopStrategyCase() {
               </span>
               <p className="mt-2 text-sm text-foreground/80">Self-sustaining brand momentum.</p>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-14 grid md:grid-cols-2 gap-10">
+          <div>
+            <Eyebrow>Contoh: experience</Eyebrow>
+            <p className="mt-3 text-foreground/85 leading-relaxed">
+              Women's Wellness Day Retreat × Ritual (2025) — semua sesi penuh.
+            </p>
+          </div>
+          <div>
+            <Eyebrow>Contoh: talent, komunitas & partnership</Eyebrow>
+            <p className="mt-3 text-foreground/85 leading-relaxed">
+              Program talent, komunitas, dan partnership dengan reach gabungan 1M+.
+            </p>
           </div>
         </div>
 

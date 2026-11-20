@@ -9,19 +9,30 @@ import {
   TrackRecord,
   Marquee,
 } from "./primitives";
-import { WORK_ITEMS } from "@/data/work";
+import { getWorkItem } from "@/data/work";
+import { ROLES, type Role } from "@/data/roles";
 import hasanProfile from "@/assets/hasan-profile.webp";
 
 const CONTACT = {
   wa: "https://wa.me/62895330305975?text=Halo%20Hasan%2C%20saya%20tertarik%20untuk%20berdiskusi%20lebih%20lanjut%20mengenai%20portofolio%20Anda.",
-  email: "mailto:Hasan.cakrawala@gmail.com",
+  email: "mailto:hasan.cakrawala@gmail.com",
   linkedin: "https://www.linkedin.com/in/muhammad-hasan-fikri",
   instagram: "https://www.instagram.com/hasan.cakrawala/",
-  cv: "https://drive.google.com/drive/folders/1r935KxGMRj77fKvCHW2tVp-kU4Qx8xQ5?usp=sharing",
 };
 
+const JOB_TITLE = "Full Stack Digital Marketing";
+
 /* ==================== HERO ==================== */
-export function Hero() {
+// `isolated` (role pages): no jumps to other pages or homepage sections — only
+// "Let's Talk", which scrolls to this page's own contact footer.
+// `title` replaces the job title under the name (role pages show their role).
+export function Hero({
+  isolated = false,
+  title = JOB_TITLE,
+}: {
+  isolated?: boolean;
+  title?: string;
+}) {
   return (
     <section id="top" className="relative pt-28 md:pt-32 pb-12 overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
@@ -67,7 +78,7 @@ export function Hero() {
             </h1>
             <div className="mt-8 flex items-center gap-3 text-sm font-mono uppercase tracking-[0.18em] text-muted-foreground">
               <span className="h-px w-10 bg-accent" />
-              <span>Brand &amp; Marketing Strategist</span>
+              <span>{title}</span>
             </div>
             <p className="mt-5 max-w-xl text-lg md:text-xl font-display italic text-foreground/85 leading-snug">
               I help brands grow revenue and build loyal customers — through emotional branding and
@@ -78,37 +89,48 @@ export function Hero() {
               <SocialIcon kind="whatsapp" href={CONTACT.wa} label="WhatsApp" external />
               <SocialIcon kind="linkedin" href={CONTACT.linkedin} label="LinkedIn" external />
               <SocialIcon kind="instagram" href={CONTACT.instagram} label="Instagram" external />
-              <SocialIcon kind="cv" href={CONTACT.cv} label="View CV" external />
             </div>
 
-            <nav aria-label="Quick links" className="mt-8 flex flex-wrap items-center gap-2.5">
-              <Link
-                to="/work"
-                className="inline-flex items-center rounded-full border border-hairline px-4 py-2 text-sm hover:border-accent hover:text-accent transition-colors"
-              >
-                Selected Work
-              </Link>
-              <Link
-                to="/certifications"
-                className="inline-flex items-center rounded-full border border-hairline px-4 py-2 text-sm hover:border-accent hover:text-accent transition-colors"
-              >
-                Certifications
-              </Link>
-              <Link
-                to="/"
-                hash="about"
-                className="inline-flex items-center rounded-full border border-hairline px-4 py-2 text-sm hover:border-accent hover:text-accent transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                to="/"
-                hash="contact"
-                className="inline-flex items-center rounded-full bg-dark text-[var(--primary-foreground)] px-4 py-2 text-sm hover:bg-accent transition-colors"
-              >
-                Let's Talk →
-              </Link>
-            </nav>
+            {isolated ? (
+              <nav aria-label="Quick links" className="mt-8 flex flex-wrap items-center gap-2.5">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center rounded-full bg-dark text-[var(--primary-foreground)] px-4 py-2 text-sm hover:bg-accent transition-colors"
+                >
+                  Let's Talk →
+                </a>
+              </nav>
+            ) : (
+              <nav aria-label="Quick links" className="mt-8 flex flex-wrap items-center gap-2.5">
+                <Link
+                  to="/"
+                  hash="work"
+                  className="inline-flex items-center rounded-full border border-hairline px-4 py-2 text-sm hover:border-accent hover:text-accent transition-colors"
+                >
+                  Selected Work
+                </Link>
+                <Link
+                  to="/certifications"
+                  className="inline-flex items-center rounded-full border border-hairline px-4 py-2 text-sm hover:border-accent hover:text-accent transition-colors"
+                >
+                  Certifications
+                </Link>
+                <Link
+                  to="/"
+                  hash="about"
+                  className="inline-flex items-center rounded-full border border-hairline px-4 py-2 text-sm hover:border-accent hover:text-accent transition-colors"
+                >
+                  About
+                </Link>
+                <Link
+                  to="/"
+                  hash="contact"
+                  className="inline-flex items-center rounded-full bg-dark text-[var(--primary-foreground)] px-4 py-2 text-sm hover:bg-accent transition-colors"
+                >
+                  Let's Talk →
+                </Link>
+              </nav>
+            )}
           </div>
 
           {/* Track record on mobile only (shown below content) */}
@@ -161,7 +183,7 @@ export function Manifesto() {
               <span className="italic">Berisik di tempat yang tepat.</span>
             </p>
             <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              — Prinsip kerja, sejak 2016
+              — Prinsip kerja
             </p>
           </div>
         </div>
@@ -173,14 +195,17 @@ export function Manifesto() {
 /* ==================== ABOUT ==================== */
 export function About() {
   const profile: [string, string][] = [
-    ["Role", "Brand & Marketing Strategist"],
-    ["Experience", "9+ years"],
-    ["Industries", "Hospitality · F&B · Lifestyle"],
+    ["Role", "Brand & Marketing Manager, Rawdee Corporation (PT. Kopi Rawdee Rawa Geude)"],
+    ["Experience", "5+ tahun"],
+    ["Industries", "Hospitality, F&B, Lifestyle, Retail, Agribusiness Export"],
     ["Location", "Tangerang Selatan, ID"],
-    ["Languages", "Indonesian · English"],
+    ["Languages", "Indonesian (Native), English (Conversational)"],
     ["Specialty", "Emotional positioning"],
-    ["Education", "S1 — Univ. Muhammadiyah Jakarta"],
-    ["Certifications", "Bisa Bikin Brand · SBDM · BelajarlagiHQ"],
+    ["Education", "S1, Universitas Muhammadiyah Jakarta, 2025"],
+    [
+      "Certifications",
+      "5 sertifikat (2026): Subiakto · SBDM · BelajarlagiHQ · Mekari University ×2",
+    ],
     ["Status", "Open to opportunities"],
   ];
   return (
@@ -199,7 +224,7 @@ export function About() {
             <div>
               <Eyebrow>Latar belakang</Eyebrow>
               <p className="mt-3 text-base md:text-lg leading-relaxed text-foreground/85">
-                Sejak 2016 mengamati perilaku konsumen dan bagaimana emosi mendasari setiap
+                Lebih dari 5 tahun mengamati perilaku konsumen dan bagaimana emosi mendasari setiap
                 keputusan beli. Lulusan Pendidikan Olahraga yang masuk dunia marketing. Memimpin
                 event besar di kampus yang mengundang Kemenpora, Wakil Walikota, dan KONI.
               </p>
@@ -258,14 +283,6 @@ export function About() {
                 );
               })}
             </dl>
-            <a
-              href={CONTACT.cv}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center w-full rounded-full bg-dark text-[var(--primary-foreground)] px-4 py-2.5 text-sm hover:bg-accent transition-colors"
-            >
-              Download CV →
-            </a>
           </div>
           <Link
             to="/certifications"
@@ -421,6 +438,7 @@ export function Expertise() {
         "Multi-brand architecture",
         "Brand canvas",
         "Customer journey mapping",
+        "Go-to-Market Strategy",
       ],
     },
     {
@@ -428,7 +446,11 @@ export function Expertise() {
       t: "Performance Marketing",
       items: [
         "Meta Ads — hands-on",
+        "Google Ads",
+        "TikTok Ads",
+        "Marketplace Ads",
         "Campaign optimization",
+        "CRO / Landing Page Optimization",
         "Google Analytics & GTM",
         "Dashboard & reporting",
         "Budget management",
@@ -443,6 +465,8 @@ export function Expertise() {
         "Customer loop strategy",
         "CRM & loyalty building",
         "Integrated marketing",
+        "OTA Management",
+        "SEO",
       ],
     },
   ];
@@ -507,9 +531,53 @@ export function Expertise() {
   );
 }
 
-/* ==================== SELECTED WORK (homepage teaser) ==================== */
+/* ==================== WORK CARD (shared by homepage role cards + role pages) ==================== */
+type WorkCardProps = {
+  chips: string[];
+  title: string;
+  tagline: string;
+  stat: string;
+  cta: string;
+} & ({ caseSlug: string; rolePath?: never } | { rolePath: Role["path"]; caseSlug?: never });
+
+function WorkCard({ chips, title, tagline, stat, cta, caseSlug, rolePath }: WorkCardProps) {
+  const body = (
+    <>
+      <div className="flex flex-wrap gap-2">
+        {chips.map((c) => (
+          <span
+            key={c}
+            className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground border border-hairline rounded-full px-2.5 py-0.5"
+          >
+            {c}
+          </span>
+        ))}
+      </div>
+      <h3 className="mt-4 font-display text-2xl">{title}</h3>
+      <p className="font-display italic text-accent text-lg">{tagline}</p>
+      <p className="mt-3 text-sm text-muted-foreground">{stat}</p>
+      <span className="mt-3 inline-block text-sm text-foreground group-hover:text-accent transition-colors">
+        {cta}
+      </span>
+    </>
+  );
+  return (
+    <div className="group reveal transition-transform duration-300 hover:-translate-y-0.5 border border-hairline rounded-md p-6 bg-background">
+      {caseSlug ? (
+        <Link to="/work/$slug" params={{ slug: caseSlug }} className="block">
+          {body}
+        </Link>
+      ) : rolePath ? (
+        <Link to={rolePath} className="block">
+          {body}
+        </Link>
+      ) : null}
+    </div>
+  );
+}
+
+/* ==================== SELECTED WORK (homepage: pick a role) ==================== */
 export function SelectedWork() {
-  const featured = WORK_ITEMS.slice(0, 3);
   return (
     <SectionShell id="work">
       <div className="reveal">
@@ -523,40 +591,17 @@ export function SelectedWork() {
         </p>
       </div>
 
-      <div className="mt-14 grid md:grid-cols-3 gap-6 md:gap-8">
-        {featured.map((w) => (
-          <div
-            key={w.slug}
-            className="group reveal transition-transform duration-300 hover:-translate-y-0.5 border border-hairline rounded-md p-6 bg-background"
-          >
-            <Link to="/work/$slug" params={{ slug: w.slug }} className="block">
-              <div className="flex flex-wrap gap-2">
-                {w.category.map((c) => (
-                  <span
-                    key={c}
-                    className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground border border-hairline rounded-full px-2.5 py-0.5"
-                  >
-                    {c}
-                  </span>
-                ))}
-              </div>
-              <h3 className="mt-4 font-display text-2xl">{w.title}</h3>
-              <p className="font-display italic text-accent text-lg">{w.tagline}</p>
-              <p className="mt-3 text-sm text-muted-foreground">{w.stat}</p>
-              <span className="mt-3 inline-block text-sm text-foreground group-hover:text-accent transition-colors">
-                Read case →
-              </span>
-            </Link>
-            {w.pdf && (
-              <a
-                href={w.pdf}
-                download
-                className="mt-3 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground hover:text-accent transition-colors"
-              >
-                Download PDF ↓
-              </a>
-            )}
-          </div>
+      <div className="mt-14 grid md:grid-cols-2 gap-6 md:gap-8">
+        {ROLES.map((r) => (
+          <WorkCard
+            key={r.path}
+            rolePath={r.path}
+            chips={[`${r.cases.length} case`]}
+            title={r.name}
+            tagline={r.intro}
+            stat={r.cases.map((slug) => getWorkItem(slug)?.title ?? slug).join(" · ")}
+            cta="Lihat case →"
+          />
         ))}
       </div>
 
@@ -572,26 +617,82 @@ export function SelectedWork() {
   );
 }
 
+/* ==================== ROLE PAGE: intro + CV + in-page index of its cases ==================== */
+export function RoleIntro({ role }: { role: Role }) {
+  const items = role.cases.map((slug) => getWorkItem(slug)).filter((w) => w !== undefined);
+  return (
+    <SectionShell id="work" padding="py-20 md:py-28">
+      <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-end">
+        <div className="md:col-span-7 reveal">
+          <Eyebrow>Selected work</Eyebrow>
+          <h1 className="mt-4 font-display text-4xl md:text-6xl leading-[1.04] tracking-tight">
+            {role.heading[0]} <span className="italic text-accent">{role.heading[1]}</span>
+          </h1>
+          <p className="mt-5 max-w-xl text-lg text-foreground/80 leading-relaxed">{role.intro}</p>
+          <a
+            href={role.cvUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center justify-center rounded-full bg-dark text-[var(--primary-foreground)] px-6 py-3 text-sm hover:bg-accent transition-colors"
+          >
+            Lihat CV {role.name} →
+          </a>
+        </div>
+
+        <nav aria-label="Case di halaman ini" className="md:col-span-5 reveal">
+          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            {items.length} case di halaman ini
+          </div>
+          <ol className="mt-3 border-t border-hairline">
+            {items.map((w, i) => (
+              <li key={w.slug} className="border-b border-hairline">
+                <a
+                  href={`#${w.slug}`}
+                  className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-3 py-4 hover:text-accent transition-colors"
+                >
+                  <span className="font-mono text-sm text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span>
+                    <span className="block font-display text-xl leading-tight">{w.title}</span>
+                    <span className="mt-1 block text-sm text-muted-foreground">{w.stat}</span>
+                  </span>
+                  <span
+                    aria-hidden
+                    className="text-muted-foreground group-hover:text-accent transition-colors"
+                  >
+                    ↓
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
+    </SectionShell>
+  );
+}
+
 /* ==================== NUMBERS ==================== */
 export function Numbers() {
   const hero = [
     {
-      value: "10–15×",
-      desc: "Revenue growth Rawdee Glamping dalam 3 bulan pertama.",
-      tag: "3-month growth",
+      value: "+50%",
+      desc: "Revenue YoY di 3 unit bisnis (4 kuartal vs 4 kuartal sebelumnya).",
+      tag: "Revenue",
     },
+    { value: "+70%", desc: "ROMI di semua unit bisnis.", tag: "ROMI" },
     {
-      value: "+70%",
-      desc: "Efisiensi budget marketing melalui customer loop strategy.",
-      tag: "Budget",
+      value: "+100%",
+      desc: "Sales Rawdee Glamping, dan profit dalam 3 bulan sejak memegang divisi.",
+      tag: "Glamping",
     },
-    { value: "+50%", desc: "Pertumbuhan omzet rata-rata seluruh lini bisnis.", tag: "Revenue" },
   ];
   const small = [
-    ["4.9 / 5", "Customer satisfaction score"],
-    ["54%", "Occupancy rate"],
-    ["3", "Brands managed simultaneously"],
-    ["9+ thn", "Years in marketing & branding"],
+    ["~20% → 60%+", "Occupancy Rawdee Glamping"],
+    ["4.5 → 4.9", "Rating Google"],
+    ["~IDR 100 jt", "Ad spend per bulan"],
+    ["5+ tahun", "Pengalaman di marketing & branding"],
   ] as const;
   return (
     <SectionShell id="numbers" bg="dark">
@@ -711,13 +812,28 @@ export function Process() {
 /* ==================== TOOLS ==================== */
 export function Tools() {
   const cols = [
-    { n: "01", t: "Ads & Campaign", items: ["Meta Ads Manager", "Meta Business Suite"] },
+    {
+      n: "01",
+      t: "Ads & Campaign",
+      items: [
+        "Meta Ads Manager",
+        "Meta Business Suite",
+        "Google Ads",
+        "OTA extranets",
+        "Seller Center Shopee / Tokopedia / TikTok Shop",
+      ],
+    },
     {
       n: "02",
       t: "Analytics & Reporting",
-      items: ["Google Analytics", "Google Tag Manager", "Google Sheets"],
+      items: ["Google Analytics", "Google Tag Manager", "Looker Studio", "Google Sheets"],
     },
-    { n: "03", t: "Ops & Productivity", items: ["Notion", "Google Workspace"] },
+    {
+      n: "03",
+      t: "Ops & Productivity",
+      items: ["Notion", "Google Workspace", "WhatsApp Business API"],
+    },
+    { n: "04", t: "Web", items: ["HTML", "CSS", "GitHub", "Vercel"] },
   ];
   return (
     <SectionShell id="tools" bg="cream">
@@ -728,7 +844,7 @@ export function Tools() {
         </h2>
       </div>
 
-      <div className="mt-12 grid md:grid-cols-3 gap-5">
+      <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
         {cols.map((c) => (
           <div key={c.n} className="bg-background rounded-md p-6 border border-hairline reveal">
             <div className="font-mono text-sm text-accent">{c.n}</div>
@@ -752,7 +868,7 @@ export function Tools() {
             AI Integration — Active
           </div>
           <h3 className="mt-5 font-display italic text-3xl md:text-4xl leading-snug text-[var(--primary-foreground)]">
-            ChatGPT · Claude · ElevenLabs · Lovable
+            ChatGPT · Claude · Gemini · ElevenLabs · Lovable
           </h3>
         </div>
         <p className="text-white/70 leading-relaxed">
@@ -773,7 +889,7 @@ const FAQS: [string, string][] = [
   ],
   [
     "Bisakah strategi yang sama diterapkan di industri kami?",
-    "Bisa. Framework “Diam–Amati–Berisik” berlaku untuk brand apapun karena pada dasarnya semua manusia di industri manapun bergerak atas dasar emosi dan persepsi yang sama. Yang berubah hanya konteks dan touchpoint-nya. Saya sudah membuktikan ini di hospitality (glamping), F&B (coffeeshop), dan retail (roastery) — tiga industri yang sangat berbeda karakter.",
+    "Bisa. Framework “Diam–Amati–Berisik” berlaku untuk brand apapun karena pada dasarnya semua manusia di industri manapun bergerak atas dasar emosi dan persepsi yang sama. Yang berubah hanya konteks dan touchpoint-nya. Saya sudah membuktikan ini di Hospitality, F&B, Lifestyle, Retail, dan Agribusiness Export — industri dengan karakter yang sangat berbeda.",
   ],
   [
     "Apa yang membedakan dari brand strategist lain?",
@@ -847,20 +963,26 @@ export function Faq() {
 }
 
 /* ==================== CONTACT ==================== */
-export function Contact() {
+// `isolated` (role & case pages): the single exit is one button back to the
+// homepage; there are no links to /certifications or other pages.
+export function Contact({ isolated = false, cvUrl }: { isolated?: boolean; cvUrl?: string }) {
   const ctas = [
     { label: "Chat WhatsApp →", href: CONTACT.wa, primary: true, external: true },
     { label: "Kirim email →", href: CONTACT.email, primary: false },
-    { label: "View CV →", href: CONTACT.cv, primary: false, external: true },
-    { label: "View Certificates →", href: "/certifications", primary: false, internal: true },
+    ...(cvUrl ? [{ label: "Lihat CV →", href: cvUrl, primary: false, external: true }] : []),
+    isolated
+      ? { label: "← Kembali ke homepage", href: "/", primary: false, internal: true }
+      : { label: "View Certificates →", href: "/certifications", primary: false, internal: true },
     { label: "LinkedIn →", href: CONTACT.linkedin, primary: false, external: true },
     { label: "Instagram →", href: CONTACT.instagram, primary: false, external: true },
   ];
   const grid: [string, string, string, boolean, boolean?][] = [
-    ["Email", "Hasan.cakrawala@gmail.com", "mailto:Hasan.cakrawala@gmail.com", false],
-    ["WhatsApp", "0895 3303 05975", CONTACT.wa, true],
+    ["Email", "hasan.cakrawala@gmail.com", CONTACT.email, false],
+    ["WhatsApp", "+62 895 330 305 975", CONTACT.wa, true],
     ["LinkedIn", "muhammad-hasan-fikri", CONTACT.linkedin, true],
-    ["Certificates", "View files →", "/certifications", false, true],
+    isolated
+      ? ["Location", "Tangerang Selatan, ID", "", false]
+      : ["Certificates", "View files →", "/certifications", false, true],
     ["Instagram", "@hasan.cakrawala", CONTACT.instagram, true],
     ["Response time", "Within 24 hours", "", false],
   ];
@@ -882,7 +1004,7 @@ export function Contact() {
           <div className="md:col-span-8 reveal">
             <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white/55">
               <LiveDot />
-              <span>10 LET'S TALK</span>
+              <span>{isolated ? "LET'S TALK" : "10 LET'S TALK"}</span>
             </div>
             <h2 className="mt-6 font-display text-5xl md:text-7xl lg:text-[96px] leading-[1] tracking-tight text-[var(--primary-foreground)]">
               Mari bangun brand{" "}
@@ -892,19 +1014,6 @@ export function Contact() {
               — DIAM · AMATI · BERISIK
             </div>
           </div>
-
-          <div className="md:col-span-4 reveal">
-            <div className="border border-white/15 rounded-md p-6 bg-white/[0.03]">
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-emerald-300">
-                <LiveDot />
-                Currently available
-              </div>
-              <p className="mt-4 text-white/75 text-sm leading-relaxed">
-                Terbuka untuk role Brand Manager, Marketing Manager, atau peran strategis di
-                industri apapun.
-              </p>
-            </div>
-          </div>
         </div>
 
         <div className="mt-12 flex flex-wrap gap-3">
@@ -912,7 +1021,7 @@ export function Contact() {
             c.internal ? (
               <Link
                 key={c.label}
-                to={c.href as "/certifications"}
+                to={c.href as "/" | "/certifications"}
                 className="inline-flex items-center rounded-full border border-white/25 hover:border-white text-white/85 hover:text-white px-5 py-3 text-sm transition-colors"
               >
                 {c.label}
@@ -963,7 +1072,7 @@ export function Contact() {
         </div>
 
         <div className="mt-10 flex flex-col md:flex-row justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.18em] text-white/40">
-          <span>Muhammad Hasan Fikri · Brand &amp; Marketing Strategist</span>
+          <span>Muhammad Hasan Fikri · {JOB_TITLE}</span>
           <span>© 2026 · Diam · Amati · Berisik</span>
         </div>
       </div>

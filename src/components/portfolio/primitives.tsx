@@ -63,8 +63,11 @@ export function Eyebrow({ children, withDot = true }: { children: ReactNode; wit
 }
 
 /* -------- Sticky nav: just the brand mark + a direct CTA. Section/page jumps
-   live as pill buttons on the homepage itself, not tucked in a header. -------- */
-export function Nav() {
+   live as pill buttons on the homepage itself, not tucked in a header.
+   `isolated` (role & case pages): the only way back to the homepage is the
+   footer button, so the brand mark is not a link and "Hire me" jumps to this
+   page's own contact footer. -------- */
+export function Nav({ isolated = false }: { isolated?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -84,17 +87,33 @@ export function Nav() {
       }}
     >
       <nav className="mx-auto max-w-[1400px] px-6 md:px-10 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <Dot />
-          <span className="font-display text-[17px] tracking-tight">Hasan Fikri</span>
-        </Link>
-        <Link
-          to="/"
-          hash="contact"
-          className="inline-flex items-center rounded-full bg-dark text-[var(--primary-foreground)] px-4 py-2 text-[12px] tracking-wide hover:bg-accent transition-colors"
-        >
-          Hire me →
-        </Link>
+        {isolated ? (
+          <span className="flex items-center gap-2 group">
+            <Dot />
+            <span className="font-display text-[17px] tracking-tight">Hasan Fikri</span>
+          </span>
+        ) : (
+          <Link to="/" className="flex items-center gap-2 group">
+            <Dot />
+            <span className="font-display text-[17px] tracking-tight">Hasan Fikri</span>
+          </Link>
+        )}
+        {isolated ? (
+          <a
+            href="#contact"
+            className="inline-flex items-center rounded-full bg-dark text-[var(--primary-foreground)] px-4 py-2 text-[12px] tracking-wide hover:bg-accent transition-colors"
+          >
+            Hire me →
+          </a>
+        ) : (
+          <Link
+            to="/"
+            hash="contact"
+            className="inline-flex items-center rounded-full bg-dark text-[var(--primary-foreground)] px-4 py-2 text-[12px] tracking-wide hover:bg-accent transition-colors"
+          >
+            Hire me →
+          </Link>
+        )}
       </nav>
     </header>
   );
@@ -193,17 +212,21 @@ export function LiveDot({ color = "bg-emerald-500" }: { color?: string }) {
   );
 }
 
-/* -------- Section heading helper -------- */
+/* -------- Section wrapper. `className` styles the outer <section>; the
+   vertical rhythm lives on the inner container, so override it with
+   `padding` (not with `!pt-*` classes on className, which never reached it). -------- */
 export function SectionShell({
   id,
   children,
   className = "",
   bg = "background",
+  padding = "py-24 md:py-32",
 }: {
   id?: string;
   children: ReactNode;
   className?: string;
   bg?: "background" | "cream" | "dark";
+  padding?: string;
 }) {
   const bgClass =
     bg === "cream"
@@ -213,7 +236,7 @@ export function SectionShell({
         : "bg-background";
   return (
     <section id={id} className={`${bgClass} ${className}`}>
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-36 md:py-48">{children}</div>
+      <div className={`mx-auto max-w-[1400px] px-6 md:px-10 ${padding}`}>{children}</div>
     </section>
   );
 }
@@ -222,15 +245,15 @@ export function SectionShell({
 export function TrackRecord() {
   const rows: [string, ReactNode][] = [
     [
-      "Revenue growth",
+      "Revenue",
       <>
-        10–15<span className="text-accent">×</span> in 3 mo
+        <span className="text-accent">+50%</span> YoY (3 unit bisnis)
       </>,
     ],
-    ["Budget efficiency", <span className="text-accent">+70%</span>],
-    ["CSAT score", <>4.9 / 5</>],
-    ["Brands managed", <>3 in 1 ecosystem</>],
-    ["Experience", <>9+ years</>],
+    ["ROMI", <span className="text-accent">+70%</span>],
+    ["Rating Google", <>4.5 → 4.9</>],
+    ["Unit bisnis", <>3 unit bisnis</>],
+    ["Pengalaman", <>5+ tahun</>],
   ];
   return (
     <div className="border border-hairline rounded-lg p-5 bg-background/60">

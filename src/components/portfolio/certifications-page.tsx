@@ -16,7 +16,7 @@ export function CertificationsPage() {
   }, [open]);
 
   return (
-    <SectionShell className="!pt-28 md:!pt-36">
+    <SectionShell padding="pt-28 md:pt-36 pb-24 md:pb-32">
       <div className="reveal">
         <Eyebrow>Certifications</Eyebrow>
         <h1 className="mt-4 font-display text-4xl md:text-6xl leading-[1.04] tracking-tight">
@@ -60,13 +60,6 @@ export function CertificationsPage() {
                 </button>
               </div>
               {c.note && <p className="mt-2 text-xs text-muted-foreground">{c.note}</p>}
-              <a
-                href={c.pdf}
-                download
-                className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground hover:text-accent transition-colors"
-              >
-                Download PDF ↓
-              </a>
             </div>
           </div>
         ))}
@@ -97,14 +90,6 @@ export function CertificationsPage() {
               <p className="mt-1 text-sm text-white/60">
                 {open.issuer} · {open.date}
               </p>
-              <a
-                href={open.pdf}
-                download
-                onClick={(e) => e.stopPropagation()}
-                className="mt-3 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-accent hover:opacity-80 transition-opacity"
-              >
-                Download PDF ↓
-              </a>
             </div>
           </div>
         </div>

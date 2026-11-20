@@ -1,26 +1,19 @@
 import { Eyebrow, SectionShell } from "../primitives";
-import {
-  BackToWork,
-  CaseHeader,
-  MetricCard,
-  Insight,
-  Tags,
-  Finding,
-  DataTable,
-  ServiceOffers,
-} from "../case-kit";
-import trackingPdf from "@/assets/case-studies/tracking-analytics.pdf?url";
+import { BackToWork, CaseHeader, MetricCard, Insight, Tags, Finding, DataTable } from "../case-kit";
+import { getCaseNumber } from "@/data/roles";
+
+const SLUG = "tracking-analytics";
 
 export function TrackingAnalyticsCase() {
   return (
     <>
-      <BackToWork pdf={trackingPdf} />
-      <SectionShell bg="cream" className="!pt-10 md:!pt-14">
+      <BackToWork slug={SLUG} bg="cream" />
+      <SectionShell bg="cream" padding="pt-8 md:pt-10 pb-24 md:pb-28">
         <CaseHeader
-          num="05"
+          num={getCaseNumber(SLUG)}
           title="Full-Stack Tracking Rebuild"
           sub="Iklan mereka sedang belajar dari penjualan yang tidak pernah terjadi."
-          meta="Rawdee Glamping · Hospitality / 2026"
+          meta="Rawdee Glamping · In-house (Rawdee Corporation) · 2026"
         />
 
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
@@ -266,6 +259,7 @@ export function TrackingAnalyticsCase() {
         </div>
 
         {/* 06 Results */}
+        {/* TODO(hasan): update EMQ, fbc coverage, tanggal baca */}
         <div className="mt-16">
           <Eyebrow>06 Hasil</Eyebrow>
           <h3 className="mt-3 font-display text-2xl md:text-3xl">
@@ -339,23 +333,6 @@ export function TrackingAnalyticsCase() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        <div className="mt-16">
-          <Eyebrow>Yang bisa saya kerjakan untuk bisnis Anda</Eyebrow>
-          <div className="mt-6">
-            <ServiceOffers
-              offers={[
-                ["Tracking audit", "Temukan yang rusak sebelum spend dolar berikutnya untuk ads."],
-                [
-                  "GTM + GA4 rebuild",
-                  "Bersih, terdokumentasi, variable-driven. Mudah di-handover.",
-                ],
-                ["Meta Pixel + CAPI", "Sinyal terdeduplikasi yang bisa dipelajari algoritma."],
-                ["Looker Studio", "Dashboard yang menjawab satu pertanyaan bisnis."],
-              ]}
-            />
           </div>
         </div>
 

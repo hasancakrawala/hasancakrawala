@@ -10,7 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BrandMarketingRouteImport } from './routes/brand-marketing'
 import { Route as CertificationsRouteImport } from './routes/certifications'
+import { Route as CroRouteImport } from './routes/cro'
+import { Route as PaidSocialRouteImport } from './routes/paid-social'
+import { Route as TrackingAnalyticsRouteImport } from './routes/tracking-analytics'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as WorkIndexRouteImport } from './routes/work.index'
 import { Route as WorkSlugRouteImport } from './routes/work.$slug'
@@ -20,9 +24,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandMarketingRoute = BrandMarketingRouteImport.update({
+  id: '/brand-marketing',
+  path: '/brand-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CertificationsRoute = CertificationsRouteImport.update({
   id: '/certifications',
   path: '/certifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CroRoute = CroRouteImport.update({
+  id: '/cro',
+  path: '/cro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaidSocialRoute = PaidSocialRouteImport.update({
+  id: '/paid-social',
+  path: '/paid-social',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackingAnalyticsRoute = TrackingAnalyticsRouteImport.update({
+  id: '/tracking-analytics',
+  path: '/tracking-analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkRoute = WorkRouteImport.update({
@@ -43,36 +67,79 @@ const WorkSlugRoute = WorkSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/brand-marketing': typeof BrandMarketingRoute
   '/certifications': typeof CertificationsRoute
+  '/cro': typeof CroRoute
+  '/paid-social': typeof PaidSocialRoute
+  '/tracking-analytics': typeof TrackingAnalyticsRoute
   '/work': typeof WorkRouteWithChildren
   '/work/$slug': typeof WorkSlugRoute
   '/work/': typeof WorkIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/brand-marketing': typeof BrandMarketingRoute
   '/certifications': typeof CertificationsRoute
+  '/cro': typeof CroRoute
+  '/paid-social': typeof PaidSocialRoute
+  '/tracking-analytics': typeof TrackingAnalyticsRoute
   '/work/$slug': typeof WorkSlugRoute
   '/work': typeof WorkIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/brand-marketing': typeof BrandMarketingRoute
   '/certifications': typeof CertificationsRoute
+  '/cro': typeof CroRoute
+  '/paid-social': typeof PaidSocialRoute
+  '/tracking-analytics': typeof TrackingAnalyticsRoute
   '/work': typeof WorkRouteWithChildren
   '/work/$slug': typeof WorkSlugRoute
   '/work/': typeof WorkIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/certifications' | '/work' | '/work/$slug' | '/work/'
+  fullPaths:
+    | '/'
+    | '/brand-marketing'
+    | '/certifications'
+    | '/cro'
+    | '/paid-social'
+    | '/tracking-analytics'
+    | '/work'
+    | '/work/$slug'
+    | '/work/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/certifications' | '/work/$slug' | '/work'
-  id: '__root__' | '/' | '/certifications' | '/work' | '/work/$slug' | '/work/'
+  to:
+    | '/'
+    | '/brand-marketing'
+    | '/certifications'
+    | '/cro'
+    | '/paid-social'
+    | '/tracking-analytics'
+    | '/work/$slug'
+    | '/work'
+  id:
+    | '__root__'
+    | '/'
+    | '/brand-marketing'
+    | '/certifications'
+    | '/cro'
+    | '/paid-social'
+    | '/tracking-analytics'
+    | '/work'
+    | '/work/$slug'
+    | '/work/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BrandMarketingRoute: typeof BrandMarketingRoute
   CertificationsRoute: typeof CertificationsRoute
+  CroRoute: typeof CroRoute
+  PaidSocialRoute: typeof PaidSocialRoute
+  TrackingAnalyticsRoute: typeof TrackingAnalyticsRoute
   WorkRoute: typeof WorkRouteWithChildren
 }
 
@@ -85,11 +152,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brand-marketing': {
+      id: '/brand-marketing'
+      path: '/brand-marketing'
+      fullPath: '/brand-marketing'
+      preLoaderRoute: typeof BrandMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/certifications': {
       id: '/certifications'
       path: '/certifications'
       fullPath: '/certifications'
       preLoaderRoute: typeof CertificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cro': {
+      id: '/cro'
+      path: '/cro'
+      fullPath: '/cro'
+      preLoaderRoute: typeof CroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paid-social': {
+      id: '/paid-social'
+      path: '/paid-social'
+      fullPath: '/paid-social'
+      preLoaderRoute: typeof PaidSocialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tracking-analytics': {
+      id: '/tracking-analytics'
+      path: '/tracking-analytics'
+      fullPath: '/tracking-analytics'
+      preLoaderRoute: typeof TrackingAnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work': {
@@ -130,7 +225,11 @@ const WorkRouteWithChildren = WorkRoute._addFileChildren(WorkRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BrandMarketingRoute: BrandMarketingRoute,
   CertificationsRoute: CertificationsRoute,
+  CroRoute: CroRoute,
+  PaidSocialRoute: PaidSocialRoute,
+  TrackingAnalyticsRoute: TrackingAnalyticsRoute,
   WorkRoute: WorkRouteWithChildren,
 }
 export const routeTree = rootRouteImport
